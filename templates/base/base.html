@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Bootstrap 4 CDN-->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- FIM do Bootstrap 4 CDN -->
+    <meta charset="UTF-8">
+    <title>Portal da Transparência - CMJG</title>
+</head>
+<body>
+<!-- Image and text -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+    <a class="nav-item nav-link active navbar-brand" href="#">
+        <img src="{% static '/media/brasao.png'%}" height="60" class="d-inline-block" alt="Câmara Municipal do Jaboatão dos Guararapes">
+        Portal da Transparência
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    {% block menu %}
+    <!-- Bloco do menu -->
+    {% endblock %}
+    <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+</div>
+</nav>
+<div class="container">
+{% block conteudo %}
+<!-- Bloco de conteúdo -->
+{% endblock %}
+</div>
+{% block rodape %}
+<!-- Bloco do rodapé -->
+<nav class="navbar navbar-dark bg-dark">
+<div class="container">
+    <div class="row mx-auto modal-dialog-centered text-center navbar-text">
+        <div class="col-md-4">
+             <a href="https://nivsoft.com.br"><img src="https://nivsoft.com.br/wp-content/uploads/2017/03/Logo-branco.png" width="120"/></a>
+        <p><small>
+            Desenvolvido pela <a href="https://nivsoft.com.br">NivSoft</a> em <a href="https://github.com/NivSoft">software livre e aberto</a>.
+        </small></p>
+        </div>
+        <div class="col-md-4">
+            <a href=""><img src="{% static "../../media/logo_cc.png" %}" /></a>
+        <p><small>
+            Conteúdo e dados sob licença <a href="https://creativecommons.org">Creative Commons 4.0</a> Atribuir Fonte - <a href=https://creativecommons.org/licenses/by/4.0/">Compartilhar Igual</a>.
+        </small></p>
+        </div>
+        <div class="col-md-4">
+        <address><small>
+            <strong>Câmara Municipal do Jaboatão dos Guararapes</strong><br>
+            <span>Rua Arão Lins de Andrade, 739, Prazeres</span><br>
+            <span>CEP: 54310-355 | Telefone: (81) 3341-7329</span>
+        </small></address>
+        </div>
+    </div>
+</div>
+</nav>
+{% endblock %}
+</body>
+</html>
