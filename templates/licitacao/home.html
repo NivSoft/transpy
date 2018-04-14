@@ -1,5 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block conteudo %}
-    teste
+    {% for dados in lista %}
+        {{ dados }}
+    {% endfor %}
 {% endblock %}
