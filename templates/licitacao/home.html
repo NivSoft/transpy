@@ -14,11 +14,12 @@
 <form class="form" method="get" action="">
 <div class="form-group">
     <label for="exampleFormControlSelect1">Modalidade</label>
-    <select multiple class="form-control" id="exampleFormControlSelect1">
-      {% for modalidade in modalidades %}
+    <select class="form-control">
+        {% for modalidade in modalidades %}
         <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
         {% endfor %}
     </select>
+
 </div>
     <input name="geral" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.queryobjeto }}">
 </form>
