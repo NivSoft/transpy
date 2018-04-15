@@ -40,8 +40,7 @@
 <div class="pagination">
     <span class="step-links">
         {% if contacts.has_previous %}
-            <a href="?page=1">&laquo; Primeira Página</a>
-            <a href="?page={{ contacts.previous_page_number }}">Voltar</a>
+            <a href="?{{ pagina_request }}={{ contacts.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Voltar</a>
         {% endif %}
 
         <span class="current">

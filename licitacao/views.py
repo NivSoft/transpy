@@ -20,7 +20,8 @@ def licitacao(request):
                 Q(objeto__icontains=query)
                 ).order_by('-criado_em')
     paginacao = Paginator(lista_modalidades, 10)
-    pagina = request.GET.get('pagina')
+    pagina_request = 'pagina'
+    pagina = request.GET.get(pagina_request)
     contacts = paginacao.get_page(pagina)
     context = {
         'lista':lista_modalidades,
