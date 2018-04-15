@@ -11,9 +11,6 @@ from licitacao.models import Modalidade, Tipo, Ano, Situacao
 def licitacao(request):
     ano_atual = now().year
     lista_modalidades = Modalidade.objects.all().filter(ano=ano_atual).order_by('-criado_em')
-    modalidades = Tipo.objects.all().order_by('nome')
-    anos = Ano.objects.all().order_by('ano')
-    situacao = Situacao.objects.all().order_by('status')
     query = request.GET.get("q")
     if query:
         lista_modalidades = lista_modalidades.filter(
@@ -34,8 +31,5 @@ def licitacao(request):
     context = {
         'lista':lista_modalidades,
         'ano':ano_atual,
-        'modalidades':modalidades,
-        'anos':anos,
-        'situacao':situacao
         }
     return render(request, 'licitacao/home.html',context)
