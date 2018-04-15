@@ -13,22 +13,22 @@
 <p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior uma , <b class="text-warning">ANO</b>, <b class="text-success">SITUAÇÃO</b> ou <b class="text-danger">OBJETO</b>.</p>
 <form class="form" method="get" action="">
 <div class="form-group">
-    <select name="querymodalidade" class="form-control" id="SelectModalidade">
+    <select class="form-control" id="SelectModalidade">
         <option value="" selected>MODALIDADE</option>
         {% for modalidade in modalidades %}
-        <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
+        <option name="querymodalidade" value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
         {% endfor %}
     </select>
-    <select name="queryano" class="form-control" id="SelectAno">
+    <select class="form-control" id="SelectAno">
         <option value="" selected>ANO</option>
         {% for ano in anos %}
-        <option value="{{ request.GET.querydata }}">{{ ano }}</option>
+        <option name="queryano" value="{{ request.GET.querydata }}">{{ ano }}</option>
         {% endfor %}
     </select>
-    <select name="querysituacao" class="form-control" id="SelectSituacao">
+    <select class="form-control" id="SelectSituacao">
         <option value="" selected>SITUAÇÃO</option>
         {% for statu in status %}
-        <option value="{{ request.GET.querysituacao }}">{{ statu.status }}</option>
+        <option name="querysituacao" value="{{ request.GET.querysituacao }}">{{ statu.status }}</option>
         {% endfor %}
     </select>
 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
