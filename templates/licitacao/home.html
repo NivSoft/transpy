@@ -4,26 +4,6 @@
 <div class="container">
 <h1>Licitações</h1>
 <h3>Opções de busca</h3>
-<form class="form-inline">
-    <select class="custom-select">
-    <option selected value="None">Todas</option>
-    {% for item in modalidades%}
-    <option value="{{ item.nome }}">{{ item.nome }}</option>
-    {% endfor %}
-    </select>
-    <select class="custom-select">
-    <option selected value="None">Todos</option>
-    {% for item in anos%}
-    <option value="{{ item.anos }}">{{ item.anos }}</option>
-    {% endfor %}
-    </select>
-    <select class="custom-select">
-    <option selected value="None">Todos</option>
-    {% for item in situacao%}
-    <option value="{{ item.status }}">{{ item.status }}</option>
-    {% endfor %}
-    </select>
-</form>
 <h3>Lista de Licitações - {{ ano }}</h3>
 <table class="table table-hover table-striped">
   <thead class="thead-dark text-center">

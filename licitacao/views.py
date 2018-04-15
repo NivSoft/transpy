@@ -1,3 +1,5 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 
 from django.template import RequestContext
@@ -12,13 +14,28 @@ def licitacao(request):
     modalidades = Tipo.objects.all().order_by('nome')
     anos = Ano.objects.all().order_by('ano')
     situacao = Situacao.objects.all().order_by('status')
-    context = RequestContext(request)
-    return render(request, 'licitacao/home.html',{'lista':lista_modalidades,'ano':ano_atual,'modalidades':modalidades, 'anos':anos, 'situacao':situacao}, context)
-
-def filtros(request, modalidade_tipo,modalidade_ano, modalidade_situacao, modalidade_objeto):
-    modalidade = Modalidade.objects.all().filter(
-        modalidade=modalidade_tipo,
-        ano=modalidade_ano,
-        situacao=modalidade_situacao,
-        objeto=modalidade_objeto
-        ).order_by('criado_em')
+    query = request.GET.get("q")
+    if query:
+        lista_modalidades = lista_modalidades.filter(
+            Q(tipo__icontains=query)|
+            Q(ano__icontains=query)|
+            Q(situacao__status__icontains=query)|
+            Q(objeto__icontains=query)
+            ).distinct()
+    paginacao = Paginator(lista_modalidades, 10)
+    requisicao_pagina = "pagina"
+    pagina = requisicao_pagina
+    try:
+        queryset = paginacao.page(pagina)
+    except PageNotAnInteger:
+        queryset = paginacao.page(1)
+    except EmptyPage:
+        queryset = paginacao.page(paginacao.num_pages)
+    context = {
+        'lista':lista_modalidades,
+        'ano':ano_atual,
+        'modalidades':modalidades,
+        'anos':anos,
+        'situacao':situacao
+        }
+    return render(request, 'licitacao/home.html',context)
