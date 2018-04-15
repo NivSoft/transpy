@@ -27,5 +27,6 @@ def licitacao(request):
         'lista':lista_modalidades,
         'ano':ano_atual,
         'contacts': contacts,
+        'pagina_request':pagina_request,
         }
     return render(request, 'licitacao/home.html',context)
