@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block conteudo %}
-<table class="table table table-hover">
+<table class="table table table-hover mx-auto modal-dialog-centered table-striped">
   <thead class="thead-dark text-center">
     <tr>
       <th>Modalidade</th>
@@ -12,7 +12,7 @@
       <th>Visualizar Arquivos</th>
     </tr>
   </thead>
-  <tbody class="table-striped">
+  <tbody>
   {% for dados in lista %}
     <tr>
       <td class="text-center">{{ dados.tipo }}</td>
