@@ -1,7 +1,18 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block conteudo %}
-<h1>Lista de Licitações - {{ ano }}</h1>
+<div class="container">
+<h1>Licitações</h1>
+<h3>Opções de busca</h3>
+<form class="form-inline">
+    <select class="custom-select">
+    <option selected>Escolha a modalidade</option>
+    {% for item in lista%}
+    <option value="{{ item.tipo }}">{{ item.tipo }}</option>
+    {% endfor %}
+    </select>
+</form>
+<h3>Lista de Licitações - {{ ano }}</h3>
 <table class="table table-hover table-striped">
   <thead class="thead-dark text-center">
     <tr>
@@ -26,6 +37,5 @@
   {% endfor %}
   </tbody>
 </table>
-
-
 {% endblock %}
+</div>
