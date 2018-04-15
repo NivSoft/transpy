@@ -13,7 +13,7 @@ def licitacao(request):
     anos = Ano.objects.all().order_by('ano')
     situacao = Situacao.objects.all().order_by('status')
     context = RequestContext(request)
-    return render(request, 'licitacao/home.html',{'lista':lista_modalidades,'ano':ano_atual,'modalidades':modalidades, 'anos':anos, 'situacao':situacao}, context)
+    return render(request, 'licitacao/home.html',{'lista':lista_modalidades,'ano':ano_atual,'modalidades':modalidades, 'anos':anos, 'situacao':situacao})
 
 def filtros(request, modalidade_tipo,modalidade_ano, modalidade_situacao, modalidade_objeto):
     modalidade = Modalidade.objects.all().filter(
