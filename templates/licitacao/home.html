@@ -12,7 +12,7 @@
 <div class="container">
 <h1>Licitações</h1>
 <h5>Opções de busca</h5>
-<pre>Para fazer uma busca de uma licitação específica, basta digitar, no cambo de busca do menu superior, uma Modalidade, ano, situação ou objeto.</pre>
+<p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior, uma Modalidade, ano, situação ou objeto.</p>
 <h3>Lista de Licitações - {{ ano }}</h3>
 <table class="table table-hover table-striped">
   <thead class="thead-dark text-center">
@@ -31,7 +31,7 @@
       <td class="text-center align-middle">{{ dados.tipo }}</td>
       <td class="text-center align-middle">{{ dados.numero }}/{{ dados.ano }}</td>
       <td class="text-center align-middle">{{ dados.situacao }}</td>
-      <td class="text-center align-middle">{{ dados.criado_em }}</td>
+      <td class="text-center align-middle">{{ dados.criado_em.day }}/{{ dados.criado_em.month }}/{{ dados.criado_em.year }}</td>
       <td class="align-middle">{{ dados.objeto }}</td>
       <td class="text-center align-middle"><a href="#"><i class="fas fa-search-plus fa-2x"></i></a></td>
     </tr>
