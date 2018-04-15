@@ -20,16 +20,11 @@ def licitacao(request):
                 Q(objeto__icontains=query)
                 ).order_by('-criado_em')
     paginacao = Paginator(lista_modalidades, 10)
-    requisicao_pagina = "pagina"
-    pagina = requisicao_pagina
-    try:
-        queryset = paginacao.page(pagina)
-    except PageNotAnInteger:
-        queryset = paginacao.page(1)
-    except EmptyPage:
-        queryset = paginacao.page(paginacao.num_pages)
+    pagina = request.GET.get('pagina')
+    contacts = paginacao.get_page(pagina)
     context = {
         'lista':lista_modalidades,
         'ano':ano_atual,
+        'contacts': contacts,
         }
     return render(request, 'licitacao/home.html',context)
