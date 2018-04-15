@@ -1,12 +1,10 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block menu %}
-
     <form class="form-inline" method="get" action="">
     <input name="q" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.q }}">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
     </form>
-
 {% endblock %}
 {% block conteudo %}
 <div class="container" style="margin-top: 20px">
