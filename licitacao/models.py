@@ -81,7 +81,7 @@ class Modalidade(models.Model):
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE, blank=True, null=True)
     contrato = models.ForeignKey(Contrato, on_delete=models.CASCADE, blank=True, null=True)
     objeto = models.TextField()
-    situacao = models.ForeignKey(Situacao, default="Em andamento", on_delete=models.CASCADE)
+    situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE)
     ano = models.PositiveIntegerField(default=now().year)
     criado_em = models.DateField(default=now())
 
