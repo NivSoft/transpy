@@ -6,7 +6,6 @@
 <h3>Opções de busca</h3>
 <form class="form-inline">
     <select class="custom-select">
-    <option selected>Escolha a modalidade</option>
     {% for item in modalidades%}
     <option value="{{ item.nome }}">{{ item.nome }}</option>
     {% endfor %}
