@@ -12,7 +12,13 @@
 <div class="container" style="margin-top: 20px">
 <h2>Licitações</h2>
 <h5>Opções de busca</h5>
-<p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior, uma Modalidade, ano, situação ou objeto.</p>
+<p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior:</p>
+<ul class="list-group">
+  <li class="list-group-item active">Modalidades</li>
+    {% for modalidade in modalidades %}
+        <li class="list-group-item">{{ modalidade }}</li>
+    {% endfor %}
+</ul>
 <h5>Lista de Licitações</h5>
 <table class="table table-hover table-striped">
   <thead class="thead-dark text-center">
