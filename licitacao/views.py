@@ -22,7 +22,12 @@ def licitacao(request):
     paginacao = Paginator(lista_modalidades, 10)
     pagina_request = 'pagina'
     pagina = request.GET.get(pagina_request)
-    contacts = paginacao.get_page(pagina)
+    try:
+        contacts = paginacao.get_page(pagina)
+    except PageNotAnInteger:
+        contacts = paginacao.page(1)
+    except EmptyPage:
+        contacts = paginacao.page(paginacao.num_pages)
     context = {
         'lista':lista_modalidades,
         'ano':ano_atual,
