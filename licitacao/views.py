@@ -16,7 +16,12 @@ def licitacao(request):
     situacao = Situacao.objects.all().order_by('status')
     query = request.GET.get("q")
     if query:
-        lista_modalidades = lista_modalidades.filter(tipo__nome__icontains=query)
+        lista_modalidades = lista_modalidades.filter(
+                Q(tipo__nome__icontains=query)|
+                Q(ano__icontains=query)|
+                Q(situacao__status__icontains=query)|
+                Q(objeto__icontains=query)
+                )
     paginacao = Paginator(lista_modalidades, 10)
     requisicao_pagina = "pagina"
     pagina = requisicao_pagina
