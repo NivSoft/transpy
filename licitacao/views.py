@@ -10,7 +10,7 @@ from licitacao.models import Modalidade, Tipo, Situacao
 
 def licitacao(request):
     modalidades = Tipo.objects.all().order_by('nome')
-    anos = Modalidade.objects.filter(ano__range=(2015, now().year)).distinct()
+    anos = range(2015, now().year)
     status = Situacao.objects.all().order_by('status')
     lista_modalidades = Modalidade.objects.all().filter(ano=now().year).order_by('-criado_em')
     querymodalidade = request.GET.get("modalidade")

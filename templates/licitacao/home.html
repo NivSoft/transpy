@@ -28,7 +28,7 @@
     <label for="SelectSituacao"><b class="text-primary">SITUAÇÃO</b></label>
     <select class="form-control" id="SelectSituacao">
         {% for statu in status %}
-        <option value="{{ request.GET.querysituacao }}">{{ status }}</option>
+        <option value="{{ request.GET.querysituacao }}">{{ statu.status }}</option>
         {% endfor %}
     </select>
 
