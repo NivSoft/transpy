@@ -11,10 +11,6 @@ class Tipo(models.Model):
 class Ano(models.Model):
     ano = models.PositiveIntegerField()
 
-    class Meta:
-        ordering = ('ano')
-        unique_together = ('ano')
-
     def __str__(self):
         return self.ano
 
