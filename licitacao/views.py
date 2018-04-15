@@ -12,7 +12,7 @@ def licitacao(request):
     modalidades = Tipo.objects.all().order_by('nome')
     primeira_modalidade = Modalidade.objects.all().order_by('ano').first()
     ultima_modalidade = Modalidade.objects.all().order_by('ano').last()
-    anos = Modalidade.objects.filter(ano__range=(primeira_modalidade, ultima_modalidade)).distinct()
+    anos = Modalidade.objects.filter(ano__range=(primeira_modalidade, ultima_modalidade))
     status = Situacao.objects.all().order_by('status')
     lista_modalidades = Modalidade.objects.all().filter(ano=now().year).order_by('-criado_em')
     querymodalidade = request.GET.get("modalidade")
