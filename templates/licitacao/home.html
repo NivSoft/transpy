@@ -10,13 +10,25 @@
 <div class="container" style="margin-top: 20px">
 <h2>Licitações</h2>
 <h5>Opções de busca</h5>
-<p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior uma <b class="text-primary">MODALIDADE</b>, <b class="text-warning">ANO</b>, <b class="text-success">SITUAÇÃO</b> ou <b class="text-danger">OBJETO</b>.</p>
+<p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior uma , <b class="text-warning">ANO</b>, <b class="text-success">SITUAÇÃO</b> ou <b class="text-danger">OBJETO</b>.</p>
 <form class="form" method="get" action="">
 <div class="form-group">
-    <label for="exampleFormControlSelect1">Modalidade</label>
+    <label><b class="text-primary">MODALIDADE</b></label>
     <select class="form-control">
         {% for modalidade in modalidades %}
         <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
+        {% endfor %}
+    </select>
+    <label><b class="text-primary">ANO</b></label>
+    <select class="form-control">
+        {% for ano in anos %}
+        <option value="{{ request.GET.querydata }}">{{ ano }}</option>
+        {% endfor %}
+    </select>
+    <label><b class="text-primary">SITUAÇÃO</b></label>
+    <select class="form-control">
+        {% for statu in istatus %}
+        <option value="{{ request.GET.querysituacao }}">{{ status }}</option>
         {% endfor %}
     </select>
 

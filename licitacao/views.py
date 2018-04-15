@@ -9,10 +9,12 @@ from licitacao.models import Modalidade, Tipo, Situacao
 
 
 def licitacao(request):
-    ano_atual = now().year
     modalidades = Tipo.objects.all().order_by('nome')
+    primeira_modalidade = Modalidade.objects.all().order_by('ano').first()
+    ultima_modalidade = Modalidade.objects.all().order_by('ano').last()
+    anos = Modalidade.objects.filter(ano__range=(primeira_modalidade, ultima_modalidade)).distinct()
     status = Situacao.objects.all().order_by('status')
-    lista_modalidades = Modalidade.objects.all().filter(ano=ano_atual).order_by('-criado_em')
+    lista_modalidades = Modalidade.objects.all().filter(ano=now().year).order_by('-criado_em')
     querymodalidade = request.GET.get("modalidade")
     querydata = request.GET.get("data")
     querysituacao = request.GET.get("situacao")
@@ -29,8 +31,8 @@ def licitacao(request):
     pagina = request.GET.get(pagina_request)
     contacts = paginacao.get_page(pagina)
     context = {
+        'anos':anos,
         'lista':lista_modalidades,
-        'ano':ano_atual,
         'contacts': contacts,
         'pagina_request':pagina_request,
         'modalidades':modalidades,
