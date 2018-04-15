@@ -19,7 +19,6 @@
         <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
         {% endfor %}
     </select>
-    <label for="SelectAno"><b class="text-primary">ANO</b></label>
     <select class="form-control" id="SelectAno">
         <option value="" selected>ANO</option>
         {% for ano in anos %}
@@ -32,9 +31,9 @@
         <option value="{{ request.GET.querysituacao }}">{{ statu.status }}</option>
         {% endfor %}
     </select>
-
-</div>
     <input name="objeto" class="form-control mr-sm-2" type="search" placeholder="Buscar por Objeto" aria-label="Search" value="{{ request.GET.queryobjeto }}" id="SelectObjeto">
+<button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+</div>
 </form>
 
 <h5>Lista de Licitações</h5>
