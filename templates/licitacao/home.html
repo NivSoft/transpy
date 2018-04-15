@@ -37,23 +37,6 @@
     </tr>
   {% endfor %}
   </tbody>
-<div class="pagination">
-    <span class="step-links">
-        {% if contacts.has_previous %}
-            <a href="?{{ pagina_request }}=1">&laquo; Primeira Página</a>
-
-        {% endif %}
-
-        <span class="current">
-            Página {{ contacts.number }} de {{ contacts.paginator.num_pages }}.
-        </span>
-
-        {% if contacts.has_next %}
-            <a href="">Próxima</a>
-            <a href="">Última &raquo;</a>
-        {% endif %}
-    </span>
-</div>
 </table>
 <nav aria-label="Page navigation example">
   <ul class="pagination">
