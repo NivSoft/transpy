@@ -11,6 +11,18 @@
     <option value="{{ item.nome }}">{{ item.nome }}</option>
     {% endfor %}
     </select>
+    <select class="custom-select">
+    <option selected value="None">Todos</option>
+    {% for item in ano%}
+    <option value="{{ item.ano }}">{{ item.ano }}</option>
+    {% endfor %}
+    </select>
+    <select class="custom-select">
+    <option selected value="None">Todos</option>
+    {% for item in situacao%}
+    <option value="{{ item.status }}">{{ ite.status }}</option>
+    {% endfor %}
+    </select>
 </form>
 <h3>Lista de Licitações - {{ ano }}</h3>
 <table class="table table-hover table-striped">

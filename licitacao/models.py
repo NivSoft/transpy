@@ -8,6 +8,16 @@ class Tipo(models.Model):
     def __str__(self):
         return self.nome
 
+class Ano(models.Model):
+    ano = models.PositiveIntegerField()
+
+    class Meta:
+        ordering = ('ano')
+        unique_together = ('ano')
+
+    def __str__(self):
+        return self.ano
+
 class Processo(models.Model):
 
     numero = models.PositiveIntegerField(blank=True, null=True)
