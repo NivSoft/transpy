@@ -14,9 +14,10 @@ def licitacao(request):
     status = Situacao.objects.all().order_by('status')
     lista_modalidades = Modalidade.objects.all().filter(ano=ano_atual).order_by('-criado_em')
     query = request.GET.get("q")
+    querydois = request.GET.get("nome")
     if query:
         lista_modalidades = lista_modalidades.filter(
-                Q(tipo__nome__icontains=query)|
+                Q(tipo__nome__icontains=querydois)|
                 Q(criado_em__icontains=query)|
                 Q(situacao__status__icontains=query)|
                 Q(objeto__icontains=query)
