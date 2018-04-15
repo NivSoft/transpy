@@ -18,7 +18,7 @@ def licitacao(request):
     if query:
         lista_modalidades = lista_modalidades.filter(
                 Q(tipo__nome__icontains=query)|
-                Q(ano__icontains=query)|
+                Q(criado_em__icontains=query)|
                 Q(situacao__status__icontains=query)|
                 Q(objeto__icontains=query)
                 )

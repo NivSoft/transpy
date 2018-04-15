@@ -1,5 +1,19 @@
 {% extends 'base/base.html' %}
 {% load static %}
+{% block menu %}
+
+    <form class="form-inline" method="get" action="">
+    <select class="custom-select">
+        <option selected value="">Modalidade</option>
+    {% for moda in modalidades %}
+        <option value="{{ moda.nome }}">{{ moda.nome }}</option>
+    {% endfor %}
+    </select>
+    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Objeto" aria-label="Search" value="{{ request.GET.q }}">
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+
+{% endblock %}
 {% block conteudo %}
 <div class="container">
 <h1>Licitações</h1>
