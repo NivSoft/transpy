@@ -13,8 +13,8 @@
 <p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior uma <b class="text-primary">MODALIDADE</b>, <b class="text-warning">ANO</b>, <b class="text-success">SITUAÇÃO</b> ou <b class="text-danger">OBJETO</b>.</p>
 <form class="form" method="get" action="">
 <div class="form-group">
-    <label for="exampleFormControlSelect2">Modalidade</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
+    <label for="exampleFormControlSelect1">Modalidade</label>
+    <select multiple class="form-control" id="exampleFormControlSelect1">
       {% for modalidade in modalidades %}
         <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
         {% endfor %}
