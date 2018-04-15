@@ -2,8 +2,7 @@
 {% load static %}
 {% block menu %}
     <form class="form-inline" method="get" action="">
-    <input name="nome" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.nome }}">
-    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.q }}">
+    <input name="geral" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.geral }}">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
     </form>
 {% endblock %}
@@ -12,6 +11,17 @@
 <h2>Licitações</h2>
 <h5>Opções de busca</h5>
 <p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior uma <b class="text-primary">MODALIDADE</b>, <b class="text-warning">ANO</b>, <b class="text-success">SITUAÇÃO</b> ou <b class="text-danger">OBJETO</b>.</p>
+<form class="form" method="get" action="">
+<div class="form-group">
+    <label for="exampleFormControlSelect2">Modalidade</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      {% for modalidade in modalidades %}
+        <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
+        {% endfor %}
+    </select>
+</div>
+    <input name="geral" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.queryobjeto }}">
+</form>
 
 <h5>Lista de Licitações</h5>
 <table class="table table-hover table-striped">
