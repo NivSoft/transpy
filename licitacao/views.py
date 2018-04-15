@@ -19,8 +19,7 @@ def licitacao(request):
         lista_modalidades = lista_modalidades.filter(
                 Q(tipo__icontains=query)|
                 Q(ano__icontains=query)|
-                Q(situacao__status__icontains=query)|
-                Q(objeto__icontains=query)
+                Q(situacao__status__icontains=query)
                 ).distinct()
     paginacao = Paginator(lista_modalidades, 10)
     requisicao_pagina = "pagina"
