@@ -13,12 +13,24 @@
 <h2>Licitações</h2>
 <h5>Opções de busca</h5>
 <p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior:</p>
+<div class="row mx-auto modal-dialog-centered text-center navbar-text">
+<div class="col-md-4">
 <ul class="list-group">
-  <li class="list-group-item active">Modalidades</li>
+  <li class="list-group-item active">Tipos de Modalidades</li>
     {% for modalidade in modalidades %}
         <li class="list-group-item">{{ modalidade }}</li>
     {% endfor %}
 </ul>
+</div>
+<div class="col-md-4">
+<ul class="list-group">
+  <li class="list-group-item active">Tipos de Situação</li>
+    {% for statu in status %}
+        <li class="list-group-item">{{ statu }}</li>
+    {% endfor %}
+</ul>
+</div>
+</div>
 <h5>Lista de Licitações</h5>
 <table class="table table-hover table-striped">
   <thead class="thead-dark text-center">
