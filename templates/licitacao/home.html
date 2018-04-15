@@ -2,7 +2,7 @@
 {% load static %}
 {% block conteudo %}
 <table class="table table table-hover">
-  <thead class="thead-dark">
+  <thead class="thead-dark text-center">
     <tr>
       <th>Modalidade</th>
       <th>Nº/Ano</th>
@@ -15,12 +15,12 @@
   <tbody class="table-striped">
   {% for dados in lista %}
     <tr>
-      <td>{{ dados.tipo }}</td>
-      <td>{{ dados.numero }}/{{ dados.ano }}</td>
-      <td>{{ dados.situacao }}</td>
-      <td>{{ dados.criado_em }}</td>
+      <td class="text-center">{{ dados.tipo }}</td>
+      <td class="text-center">{{ dados.numero }}/{{ dados.ano }}</td>
+      <td class="text-center">{{ dados.situacao }}</td>
+      <td class="text-center">{{ dados.criado_em }}</td>
       <td>{{ dados.objeto }}</td>
-      <td><a href="#"><i class="fas fa-search-plus fa-2x"></i></a></td>
+      <td class="text-center"><a href="#"><i class="fas fa-search-plus fa-2x"></i></a></td>
     </tr>
   {% endfor %}
   </tbody>
