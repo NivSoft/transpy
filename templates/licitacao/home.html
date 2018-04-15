@@ -2,7 +2,7 @@
 {% load static %}
 {% block menu %}
     <form class="form-inline" method="get" action="">
-    <input name="objeto" class="form-control mr-sm-2" type="search" placeholder="Buscar por Objeto" aria-label="Search" value="{{ request.GET.queryobjeto }}">
+    <input name="queryobjeto" class="form-control mr-sm-2" type="search" placeholder="Buscar por Objeto" aria-label="Search" value="{{ request.GET.queryobjeto }}">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
     </form>
 {% endblock %}
@@ -13,22 +13,22 @@
 <p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior uma , <b class="text-warning">ANO</b>, <b class="text-success">SITUAÇÃO</b> ou <b class="text-danger">OBJETO</b>.</p>
 <form class="form" method="get" action="">
 <div class="form-group">
-    <select class="form-control" id="SelectModalidade">
+    <select name="querymodalidade" class="form-control" id="SelectModalidade">
         <option value="" selected>MODALIDADE</option>
         {% for modalidade in modalidades %}
-        <option name="querymodalidade" value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
+        <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
         {% endfor %}
     </select>
-    <select class="form-control" id="SelectAno">
+    <select name="queryano" class="form-control" id="SelectAno">
         <option value="" selected>ANO</option>
         {% for ano in anos %}
-        <option name="queryano" value="{{ request.GET.querydata }}">{{ ano }}</option>
+        <option value="{{ request.GET.querydata }}">{{ ano }}</option>
         {% endfor %}
     </select>
-    <select class="form-control" id="SelectSituacao">
+    <select name="querysituacao" class="form-control" id="SelectSituacao">
         <option value="" selected>SITUAÇÃO</option>
         {% for statu in status %}
-        <option name="querysituacao" value="{{ request.GET.querysituacao }}">{{ statu.status }}</option>
+        <option value="{{ request.GET.querysituacao }}">{{ statu.status }}</option>
         {% endfor %}
     </select>
 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
