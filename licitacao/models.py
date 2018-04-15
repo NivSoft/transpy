@@ -93,7 +93,6 @@ class Modalidade(models.Model):
 
     class Meta:
         verbose_name_plural = "Modalidades"
-        ordering = ('tipo','ano','numero')
         unique_together = ('ano','tipo','numero')
 
     def __str__(self):
