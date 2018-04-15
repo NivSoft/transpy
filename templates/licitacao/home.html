@@ -14,16 +14,19 @@
 <form class="form" method="get" action="">
 <div class="form-group">
     <select name="querymodalidade" class="form-control" id="SelectModalidade">
+        <option value="" selected>MODALIDADE</option>
         {% for modalidade in modalidades %}
         <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
         {% endfor %}
     </select>
     <select name="queryano" class="form-control" id="SelectAno">
+        <option value="" selected>ANO</option>
         {% for ano in anos %}
         <option value="{{ request.GET.querydata }}">{{ ano }}</option>
         {% endfor %}
     </select>
     <select name="querysituacao" class="form-control" id="SelectSituacao">
+        <option value="" selected>SITUAÇÃO</option>
         {% for statu in status %}
         <option value="{{ request.GET.querysituacao }}">{{ statu.status }}</option>
         {% endfor %}

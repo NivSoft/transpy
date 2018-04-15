@@ -13,10 +13,10 @@ def licitacao(request):
     anos = range(2015, now().year+1)
     status = Situacao.objects.all().order_by('status')
     lista_modalidades = Modalidade.objects.all().filter(ano=now().year).order_by('-criado_em')
-    querymodalidade = request.GET.get("modalidade")
-    querydata = request.GET.get("data")
-    querysituacao = request.GET.get("situacao")
-    queryobjeto = request.GET.get("objeto")
+    querymodalidade = request.GET.get("querymodalidade")
+    querydata = request.GET.get("querydata")
+    querysituacao = request.GET.get("querysituacao")
+    queryobjeto = request.GET.get("queryobjeto")
     if querymodalidade or querydata or querysituacao or queryobjeto:
         lista_modalidades = lista_modalidades.filter(
                 Q(tipo__nome__icontains=querymodalidade)|
