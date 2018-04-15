@@ -11,7 +11,6 @@ class Tipo(models.Model):
 class Processo(models.Model):
 
     numero = models.PositiveIntegerField(blank=True, null=True)
-    objeto = models.TextField()
     ano = models.PositiveIntegerField(default=now().year)
     criado_em = models.DateField(default=now())
 
@@ -69,6 +68,11 @@ class Contrato(models.Model):
                 super(Contrato, self).save()
         else:
             super(Contrato, self).save()
+class Situacao(models.Model):
+    status = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.status
 
 class Modalidade(models.Model):
 
@@ -76,6 +80,8 @@ class Modalidade(models.Model):
     numero = models.PositiveIntegerField(default=None, blank=True, null=True)
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE, blank=True, null=True)
     contrato = models.ForeignKey(Contrato, on_delete=models.CASCADE, blank=True, null=True)
+    objeto = models.TextField()
+    situacao = models.ForeignKey(Situacao, default="Em andamento", on_delete=models.CASCADE)
     ano = models.PositiveIntegerField(default=now().year)
     criado_em = models.DateField(default=now())
 

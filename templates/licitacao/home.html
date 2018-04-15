@@ -1,7 +1,32 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block conteudo %}
-    {% for dados in lista %}
-        {{ dados }}
-    {% endfor %}
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Modalidade</th>
+      <th>Nº/Ano</th>
+      <th>Situação</th>
+      <th>Data de Abertura</th>
+      <th>Objeto da Contratação</th>
+      <th>Visualizar Arquivos</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for dados in lista %}
+    <tr>
+      <th scope="row">{{ dados.numero }}</th>
+      <td>{{ dados.tipo }}</td>
+      <td>{{ dados.numero }}/{{ dados.ano }}</td>
+      <td>{{ dados.situacao }}</td>
+      <td>{{ dados.criado_em }}</td>
+      <td>{{ dados.objeto }}</td>
+      <td>O</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
 {% endblock %}
