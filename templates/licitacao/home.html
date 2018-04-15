@@ -41,7 +41,7 @@
     <span class="step-links">
         {% if contacts.has_previous %}
             <a href="?{{ pagina_request }}=1">&laquo; Primeira Página</a>
-            <a href="?{{ pagina_request }}={{ contacts.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Voltar</a>
+
         {% endif %}
 
         <span class="current">
@@ -49,11 +49,26 @@
         </span>
 
         {% if contacts.has_next %}
-            <a href="?{{ pagina_request }}={{ contacts.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Próxima</a>
-            <a href="?{{ pagina_request }}={{ contacts.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Última &raquo;</a>
+            <a href="">Próxima</a>
+            <a href="">Última &raquo;</a>
         {% endif %}
     </span>
 </div>
 </table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if contacts.has_previous %}
+    <li class="page-item"><a class="page-link" href="?{{ pagina_request }}={{ contacts.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Voltar</a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link" href="?{{ pagina_request }}={{ contacts.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Voltar</a></li>
+    {% endif %}
+    <li class="page-item">Página {{ contacts.number }} de {{ contacts.paginator.num_pages }}.</li>
+    {% if contacts.has_next %}
+    <li class="page-item"><a class="page-link" href="?{{ pagina_request }}={{ contacts.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Próximo</a></li>
+    {% else %}
+    <li class="page-item disable"><a class="page-link" href="?{{ pagina_request }}={{ contacts.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Próximo</a></li>
+    {% endif %}
+  </ul>
+</nav>
 {% endblock %}
 </div>
