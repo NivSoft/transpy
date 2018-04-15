@@ -13,27 +13,28 @@
 <p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior uma , <b class="text-warning">ANO</b>, <b class="text-success">SITUAÇÃO</b> ou <b class="text-danger">OBJETO</b>.</p>
 <form class="form" method="get" action="">
 <div class="form-group">
-    <label><b class="text-primary">MODALIDADE</b></label>
-    <select class="form-control">
+    <label for="SelectModalidade"><b class="text-primary">MODALIDADE</b></label>
+    <select class="form-control" id="SelectModalidade">
         {% for modalidade in modalidades %}
         <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
         {% endfor %}
     </select>
-    <label><b class="text-primary">ANO</b></label>
-    <select class="form-control">
+    <label for="SelectAno"><b class="text-primary">ANO</b></label>
+    <select class="form-control" id="SelectAno">
         {% for ano in anos %}
-        <option value="{{ request.GET.querydata }}">{{ ano }}</option>
+        <option value="{{ request.GET.querydata }}">{{ ano.ano }}</option>
         {% endfor %}
     </select>
-    <label><b class="text-primary">SITUAÇÃO</b></label>
-    <select class="form-control">
-        {% for statu in istatus %}
+    <label for="SelectSituacao"><b class="text-primary">SITUAÇÃO</b></label>
+    <select class="form-control" id="SelectSituacao">
+        {% for statu in status %}
         <option value="{{ request.GET.querysituacao }}">{{ status }}</option>
         {% endfor %}
     </select>
 
 </div>
-    <input name="geral" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.queryobjeto }}">
+    <label for="SelectObjeto">OBJETO</label>
+    <input name="geral" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.queryobjeto }}" id="SelectObjeto">
 </form>
 
 <h5>Lista de Licitações</h5>
