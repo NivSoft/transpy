@@ -45,13 +45,13 @@
     {% else %}
     <li class="page-item disabled"><a class="page-link" href="#">Voltar</a></li>
     {% endif %}
-    <li class="page-item">Página {{ contacts.number }} de {{ contacts.paginator.num_pages }}.</li>
+      <li class="page-item disabled"><a class="page-link" href="#">Página {{ contacts.number }} de {{ contacts.paginator.num_pages }}.</a></li>
     {% if contacts.has_next %}
     <li class="page-item"><a class="page-link" href="?{{ pagina_request }}={{ contacts.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Próximo</a></li>
     {% else %}
-    <li class="page-item disable"><a class="page-link" href="#">Próximo</a></li>
+    <li class="page-item disabled"><a class="page-link" href="#">Próximo</a></li>
     {% endif %}
   </ul>
 </nav>
-{% endblock %}
 </div>
+{% endblock %}
