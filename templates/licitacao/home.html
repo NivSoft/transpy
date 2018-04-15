@@ -1,10 +1,9 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block conteudo %}
-<table class="table">
-  <thead class="thead-inverse">
+<table class="table table table-hover">
+  <thead class="thead-dark">
     <tr>
-      <th>#</th>
       <th>Modalidade</th>
       <th>Nº/Ano</th>
       <th>Situação</th>
@@ -13,16 +12,17 @@
       <th>Visualizar Arquivos</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="table-striped">
   {% for dados in lista %}
     <tr>
-      <th scope="row">{{ dados.numero }}</th>
       <td>{{ dados.tipo }}</td>
       <td>{{ dados.numero }}/{{ dados.ano }}</td>
       <td>{{ dados.situacao }}</td>
       <td>{{ dados.criado_em }}</td>
       <td>{{ dados.objeto }}</td>
-      <td>O</td>
+      <td><a href="#">
+          <span class="glyphicon glyphicon-zoom-in"></span>
+        </a></td>
     </tr>
   {% endfor %}
   </tbody>
