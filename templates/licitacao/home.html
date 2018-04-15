@@ -3,17 +3,17 @@
 {% block menu %}
 
     <form class="form-inline" method="get" action="">
-    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Objeto" aria-label="Search" value="{{ request.GET.q }}">
+    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.q }}">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
     </form>
 
 {% endblock %}
 {% block conteudo %}
 <div class="container">
-<h1>Licitações</h1>
+<h2>Licitações</h2>
 <h5>Opções de busca</h5>
 <p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior, uma Modalidade, ano, situação ou objeto.</p>
-<h3>Lista de Licitações - {{ ano }}</h3>
+<h5>Lista de Licitações - {{ ano }}</h5>
 <table class="table table-hover table-striped">
   <thead class="thead-dark text-center">
     <tr>
@@ -31,7 +31,7 @@
       <td class="text-center align-middle">{{ dados.tipo }}</td>
       <td class="text-center align-middle">{{ dados.numero }}/{{ dados.ano }}</td>
       <td class="text-center align-middle">{{ dados.situacao }}</td>
-      <td class="text-center align-middle">{{ dados.criado_em|date:"D d M Y" }}</td>
+      <td class="text-center align-middle">{{ dados.criado_em }}</td>
       <td class="align-middle">{{ dados.objeto }}</td>
       <td class="text-center align-middle"><a href="#"><i class="fas fa-search-plus fa-2x"></i></a></td>
     </tr>
