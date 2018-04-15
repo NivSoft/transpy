@@ -2,26 +2,26 @@
 {% load static %}
 {% block conteudo %}
 <h1>Lista de Licitações</h1>
-<table class="table table-hover align-middle table-striped">
+<table class="table table-hover table-striped">
   <thead class="thead-dark text-center">
     <tr>
-      <th>Modalidade</th>
-      <th>Nº/Ano</th>
-      <th>Situação</th>
-      <th>Data de Abertura</th>
-      <th>Objeto da Contratação</th>
-      <th>Visualizar Arquivos</th>
+      <th class="align-middle">Modalidade</th>
+      <th class="align-middle">Nº/Ano</th>
+      <th class="align-middle">Situação</th>
+      <th class="align-middle">Data de Abertura</th>
+      <th class="align-middle">Objeto da Contratação</th>
+      <th class="align-middle">Visualizar Arquivos</th>
     </tr>
   </thead>
   <tbody>
   {% for dados in lista %}
     <tr>
-      <td class="text-center">{{ dados.tipo }}</td>
-      <td class="text-center">{{ dados.numero }}/{{ dados.ano }}</td>
-      <td class="text-center">{{ dados.situacao }}</td>
-      <td class="text-center">{{ dados.criado_em }}</td>
-      <td>{{ dados.objeto }}</td>
-      <td class="text-center"><a href="#"><i class="fas fa-search-plus fa-2x"></i></a></td>
+      <td class="text-center align-middle">{{ dados.tipo }}</td>
+      <td class="text-center align-middle">{{ dados.numero }}/{{ dados.ano }}</td>
+      <td class="text-center align-middle">{{ dados.situacao }}</td>
+      <td class="text-center align-middle">{{ dados.criado_em }}</td>
+      <td class="align-middle">{{ dados.objeto }}</td>
+      <td class="text-center align-middle"><a href="#"><i class="fas fa-search-plus fa-2x"></i></a></td>
     </tr>
   {% endfor %}
   </tbody>
