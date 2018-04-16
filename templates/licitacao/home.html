@@ -3,9 +3,6 @@
 {% block menu %}
     <form class="form-inline" method="get" action="">
     <input name="queryobjeto" class="form-control mr-sm-2" type="search" placeholder="Buscar por Objeto" aria-label="Search" value="{{ request.GET.queryobjeto }}">
-    <input name="querymodalidade" class="form-control mr-sm-2" type="search" placeholder="Buscar por Objeto" aria-label="Search" value="{{ request.GET.querymodalidade }}">
-    <input name="queryodata" class="form-control mr-sm-2" type="search" placeholder="Buscar por Objeto" aria-label="Search" value="{{ request.GET.querydata }}">
-    <input name="querysituacao" class="form-control mr-sm-2" type="search" placeholder="Buscar por Objeto" aria-label="Search" value="{{ request.GET.querysituacao }}">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
     </form>
 {% endblock %}
@@ -14,30 +11,6 @@
 <h2>Licitações</h2>
 <h5>Opções de busca</h5>
 <p>Para buscar uma licitação específica, basta digitar, no campo de busca do menu superior uma , <b class="text-warning">ANO</b>, <b class="text-success">SITUAÇÃO</b> ou <b class="text-danger">OBJETO</b>.</p>
-<form class="form" method="get" action="">
-<div class="form-group">
-    <select name="querymodalidade" class="form-control" id="SelectModalidade">
-        <option value="" selected>MODALIDADE</option>
-        {% for modalidade in modalidades %}
-        <option value="{{ request.GET.querymodalidade }}">{{ modalidade }}</option>
-        {% endfor %}
-    </select>
-    <select name="queryano" class="form-control" id="SelectAno">
-        <option value="" selected>ANO</option>
-        {% for ano in anos %}
-        <option value="{{ request.GET.querydata }}">{{ ano }}</option>
-        {% endfor %}
-    </select>
-    <select name="querysituacao" class="form-control" id="SelectSituacao">
-        <option value="" selected>SITUAÇÃO</option>
-        {% for statu in status %}
-        <option value="{{ request.GET.querysituacao }}">{{ statu.status }}</option>
-        {% endfor %}
-    </select>
-<button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-</div>
-</form>
-
 <h5>Lista de Licitações</h5>
 <table class="table table-hover table-striped">
   <thead class="thead-dark text-center">
