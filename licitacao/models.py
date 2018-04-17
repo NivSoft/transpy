@@ -81,7 +81,7 @@ class Situacao(models.Model):
         return self.status
 
 class Modalidade(models.Model):
-
+    identificacao = models.CharField(max_length=10)
     tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
     numero = models.PositiveIntegerField(default=None, blank=True, null=True)
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE, blank=True, null=True)
@@ -107,9 +107,12 @@ class Modalidade(models.Model):
                 for n in dados:
                     lista.append(n.numero)
                 self.numero = lista[-1] + 1
+                self.identificacao = "{}/{}".format(self.numero, self.criado_em.year)
                 super(Modalidade, self).save()
             else:
                 self.numero = 1
+                self.identificacao = "{}/{}".format(self.numero, self.criado_em.year)
                 super(Modalidade, self).save()
         else:
+            self.identificacao = "{}/{}".format(self.numero, self.criado_em.year)
             super(Modalidade, self).save()

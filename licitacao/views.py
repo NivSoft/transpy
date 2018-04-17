@@ -15,7 +15,7 @@ def licitacao(request):
     lista_modalidades = Modalidade.objects.all().filter(ano=now().year).order_by('-criado_em')
     queryobjeto = request.GET.get("queryobjeto")
     if queryobjeto:
-        lista_modalidades = lista_modalidades.filter(
+        lista_modalidades = lista_modalidades.all().filter(
                 Q(tipo__nome__icontains=queryobjeto)|
                 Q(numero__icontains=queryobjeto)|
                 Q(criado_em__icontains=queryobjeto)|
