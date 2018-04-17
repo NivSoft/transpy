@@ -81,7 +81,7 @@ class Situacao(models.Model):
         return self.status
 
 class Modalidade(models.Model):
-    identificacao = models.CharField(max_length=10)
+    identificacao = models.CharField(max_length=10, default=None, blank=True, null=True)
     tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
     numero = models.PositiveIntegerField(default=None, blank=True, null=True)
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE, blank=True, null=True)
