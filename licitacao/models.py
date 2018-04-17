@@ -80,6 +80,12 @@ class Situacao(models.Model):
     def __str__(self):
         return self.status
 
+class Arquivo(models.Model):
+    arquivo = models.FileField()
+
+    def __str__(self):
+        return self.arquivo
+
 class Modalidade(models.Model):
     identificacao = models.CharField(max_length=10, default=None, blank=True, null=True)
     tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
@@ -90,6 +96,7 @@ class Modalidade(models.Model):
     situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE)
     ano = models.PositiveIntegerField(default=now().year)
     criado_em = models.DateField(default=now())
+    arquivos = models.ManyToManyField(Arquivo)
 
     class Meta:
         verbose_name_plural = "Modalidades"
