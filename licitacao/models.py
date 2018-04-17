@@ -103,7 +103,7 @@ class Modalidade(models.Model):
     situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE)
     ano = models.PositiveIntegerField(default=None, blank=True, null=True)
     criado_em = models.DateField(default=now(), verbose_name="Data de abertura")
-    arquivos = models.ManyToManyField(Arquivo)
+    arquivos = models.ManyToManyField(Arquivo, default=None, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Modalidades"
