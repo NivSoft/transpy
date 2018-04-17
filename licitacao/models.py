@@ -84,7 +84,7 @@ class Arquivo(models.Model):
     arquivo = models.FileField()
 
     def __str__(self):
-        return self.arquivo
+        return self.arquivo.name
 
 class Modalidade(models.Model):
     identificacao = models.CharField(max_length=10, default=None, blank=True, null=True)
