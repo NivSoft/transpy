@@ -17,7 +17,7 @@ class Ano(models.Model):
 class Processo(models.Model):
 
     numero = models.PositiveIntegerField(blank=True, null=True)
-    ano = models.PositiveIntegerField(default=now().year)
+    ano = models.PositiveIntegerField(default=None, blank=True, null=True)
     criado_em = models.DateField(default=now())
 
     class Meta:
@@ -37,18 +37,21 @@ class Processo(models.Model):
                 for n in dados:
                     lista.append(n.numero)
                 self.numero = lista[-1]+1
+                self.ano = self.criado_em.year
                 super(Processo, self).save()
             else:
                 self.numero = 1
+                self.ano = self.criado_em.year
                 super(Processo, self).save()
         else:
+            self.ano = self.criado_em.year
             super(Processo, self).save()
 
 class Contrato(models.Model):
     numero = models.PositiveIntegerField(default=None, blank=True, null=True)
     inicio_data = models.DateField(default=None)
     fim_data = models.DateField(default=None)
-    ano = models.PositiveIntegerField(default=now().year)
+    ano = models.PositiveIntegerField(default=None, blank=True, null=True)
     criado_em = models.DateField(default=now())
 
     class Meta:
@@ -68,12 +71,16 @@ class Contrato(models.Model):
                 for n in dados:
                     lista.append(n.numero)
                 self.numero = lista[-1]+1
+                self.ano = self.criado_em.year
                 super(Contrato, self).save()
             else:
                 self.numero = 1
+                self.ano = self.criado_em.year
                 super(Contrato, self).save()
         else:
+            self.ano = self.criado_em.year
             super(Contrato, self).save()
+
 class Situacao(models.Model):
     status = models.CharField(max_length=30)
 
@@ -81,7 +88,7 @@ class Situacao(models.Model):
         return self.status
 
 class Arquivo(models.Model):
-    arquivo = models.FileField()
+    arquivo = models.FileField(default=None, blank=True, null=True)
 
     def __str__(self):
         return self.arquivo.name
@@ -94,8 +101,8 @@ class Modalidade(models.Model):
     contrato = models.ForeignKey(Contrato, on_delete=models.CASCADE, blank=True, null=True)
     objeto = models.TextField()
     situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE)
-    ano = models.PositiveIntegerField(default=now().year)
-    criado_em = models.DateField(default=now())
+    ano = models.PositiveIntegerField(default=None, blank=True, null=True)
+    criado_em = models.DateField(default=now(), verbose_name="Data de abertura")
     arquivos = models.ManyToManyField(Arquivo)
 
     class Meta:
@@ -115,11 +122,14 @@ class Modalidade(models.Model):
                     lista.append(n.numero)
                 self.numero = lista[-1] + 1
                 self.identificacao = "{}/{}".format(self.numero, self.criado_em.year)
+                self.ano = self.criado_em.year
                 super(Modalidade, self).save()
             else:
                 self.numero = 1
                 self.identificacao = "{}/{}".format(self.numero, self.criado_em.year)
+                self.ano = self.criado_em.year
                 super(Modalidade, self).save()
         else:
             self.identificacao = "{}/{}".format(self.numero, self.criado_em.year)
+            self.ano = self.criado_em.year
             super(Modalidade, self).save()
