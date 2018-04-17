@@ -14,17 +14,12 @@ class ArquivosInline(admin.StackedInline):
 
 
 class ModalidadeAdmin(admin.ModelAdmin):
-    fields = [
+    fieldset = [
         ('Dados de Identificação',  {'fields':['identificacao','tipo','numero','objeto','processo','contrato']}),
         ('Status',                  {'fields':['situacao']}),
         ('Dados Temporais',         {'fields':['ano','criado_em']}),
         ('Documentação',            {'fields':['arquivos']}),
     ]
+    inlines = Modalidade
 
-
-admin.site.register(Tipo)
-admin.site.register(Contrato)
-admin.site.register(Processo)
-admin.site.register(Situacao)
-admin.site.register(Arquivo)
-admin.site.register(Modalidade)
+admin.site.register(Modalidade, Tipo, Processo, Situacao, Arquivo)
