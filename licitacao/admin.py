@@ -20,7 +20,6 @@ class ModalidadeAdmin(admin.ModelAdmin):
         ('Dados Temporais',         {'fields':['ano','criado_em']}),
         ('Documentação',            {'fields':['arquivos']}),
     ]
-    inlines = [ArquivosInline]
 
 
 admin.site.register(Tipo)
