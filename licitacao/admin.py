@@ -9,18 +9,18 @@ from licitacao.models import Tipo, Processo, Contrato, Modalidade, Situacao, Arq
 #admin.site.register(Licitante)
 #admin.site.register(Processo, ProcessoAdmin)
 
-class DocumentosInline(admin.StackedInline):
+class ArquivosInline(admin.StackedInline):
     model = Modalidade
 
 
 class ModalidadeAdmin(admin.ModelAdmin):
     fields = [
-        ('Dados de Identificação',{'fields':['identificacao','tipo','numero','objeto','processo','contrato']}),
-        ('Status',{'fields':['situacao']}),
-        ('Dados Temporais', {'fields':['ano','criado_em']}),
-        ('Documentação',{'fields':['arquivos']}),
+        ('Dados de Identificação',  {'fields':['identificacao','tipo','numero','objeto','processo','contrato']}),
+        ('Status',                  {'fields':['situacao']}),
+        ('Dados Temporais',         {'fields':['ano','criado_em']}),
+        ('Documentação',            {'fields':['arquivos']}),
     ]
-    inlines = [DocumentosInline]
+    inlines = [ArquivosInline]
 
 
 admin.site.register(Tipo)
