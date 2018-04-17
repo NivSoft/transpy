@@ -11,6 +11,7 @@ from licitacao.models import Tipo, Processo, Contrato, Modalidade, Situacao, Arq
 
 class ArquivosInline(admin.StackedInline):
     model = Modalidade
+    extra = 3
 
 
 class ModalidadeAdmin(admin.ModelAdmin):
