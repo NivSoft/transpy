@@ -1,7 +1,7 @@
 #!/bin/bash
 apt update && apt upgrade -y
-apt install vim python3 python virtualenv build-essential python3-dev python -y
-apt install python-pip -y
+apt install vim python3 python virtualenv build-essential python3-dev python procps -y
+apt install python3-pip -y
 
 DIR=/
 FILE=deploy
@@ -11,10 +11,8 @@ echo "Os diretórios já existem"
 else
 mkdir /deploy
 mkdir /deploy/App
-mkdir /deploy/envs
 fi
-
-cd /deploy/envs
-virtualenv -p python3 envoficio
-source envoficio/bin/activate
-pip install django pillow xhtml2pdf gunicorn
+cd /deploy/App
+git init
+git pull https://github.com/NivSoft/transpy.git
+pip3 install -r requirements.txt
