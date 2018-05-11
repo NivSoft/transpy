@@ -1,0 +1,91 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubernetes.io/created-by: |
+      {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"default","name":"postgres-1-59fdd4468c","uid":"9beac263-5509-11e8-b161-42010a8001ca","apiVersion":"extensions","resourceVersion":"217630"}}
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu request for container
+      postgres'
+  creationTimestamp: 2018-05-11T10:58:11Z
+  generateName: postgres-1-59fdd4468c-
+  labels:
+    app: postgres-1
+    pod-template-hash: "1598800247"
+  name: postgres-1-59fdd4468c-gsvlt
+  namespace: default
+  ownerReferences:
+  - apiVersion: extensions/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: postgres-1-59fdd4468c
+    uid: 9beac263-5509-11e8-b161-42010a8001ca
+  resourceVersion: "217649"
+  selfLink: /api/v1/namespaces/default/pods/postgres-1-59fdd4468c-gsvlt
+  uid: 3245089c-550a-11e8-b161-42010a8001ca
+spec:
+  containers:
+  - image: postgres
+    imagePullPolicy: Always
+    name: postgres
+    resources:
+      requests:
+        cpu: 100m
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-2vgdw
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  nodeName: gke-cluster-1-default-pool-c405660f-z99j
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.alpha.kubernetes.io/notReady
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.alpha.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-2vgdw
+    secret:
+      defaultMode: 420
+      secretName: default-token-2vgdw
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: 2018-05-11T10:58:11Z
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: 2018-05-11T10:58:13Z
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: 2018-05-11T10:58:11Z
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://1530ed9a0e57b32a3c4ffcdc605fef57a3569724547869696c8a411ab46f6d3e
+    image: postgres:latest
+    imageID: docker-pullable://postgres@sha256:4bee009f05db292e794d4c288b587be60c3a526cc3bf669100be981ef0551284
+    lastState: {}
+    name: postgres
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: 2018-05-11T10:58:12Z
+  hostIP: 10.128.0.4
+  phase: Running
+  podIP: 10.8.1.20
+  qosClass: Burstable
+  startTime: 2018-05-11T10:58:11Z
