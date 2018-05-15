@@ -89,9 +89,16 @@ class Situacao(models.Model):
 
 class Arquivo(models.Model):
     arquivo = models.FileField(default=None, blank=True, null=True)
+    nome = models.CharField(max_length=300, default=None, blank=True, null=True)
 
     def __str__(self):
         return self.arquivo.name
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        if self.arquivo and not self.nome:
+            self.nome = self.arquivo.name
+            super(Arquivo, self).save()
 
 class Modalidade(models.Model):
     identificacao = models.CharField(max_length=10, default=None, blank=True, null=True)
@@ -101,7 +108,7 @@ class Modalidade(models.Model):
     contrato = models.CharField(default=None, max_length=10)
     objeto = models.TextField()
     situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE)
-    ano = models.PositiveIntegerField(default=None, blank=True, null=True)
+    ano = models.PositiveIntegerField(default=now().year, blank=True, null=True)
     criado_em = models.DateField(default=now(), verbose_name="Data de abertura")
     arquivos = models.ManyToManyField(Arquivo, default=None, blank=True, null=True)
 

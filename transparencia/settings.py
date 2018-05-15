@@ -25,7 +25,7 @@ SECRET_KEY = 'e+p(o)4jwvz1o22=lh&+1&ikckv$l6$nbn54wkym#%mhify5os'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.23.0.3','transpy','localhost','192.168.25.47','10.10.1.213']
+ALLOWED_HOSTS = ['localhost',]
 
 
 # Application definition
@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'transparencia.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': ('deploy'),
-        'USER': 'root',
-        'PASSWORD': '582676da',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'transparencia',
+        'USER': 'camara',
+        'PASSWORD': 'oalamoD',
         'HOST': '127.0.0.1',
-        'PORT': '5432',  # 8000 is default
+        'PORT': '3306',  # 8000 is default
     }
 }
 
