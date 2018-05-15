@@ -105,7 +105,7 @@ class Modalidade(models.Model):
     tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
     numero = models.PositiveIntegerField(default=None, blank=True, null=True)
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE, blank=True, null=True)
-    contrato = models.CharField(default=None, max_length=10)
+    contrato = models.CharField(default=None, max_length=10, blank=True, null=True)
     objeto = models.TextField()
     situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE)
     ano = models.PositiveIntegerField(default=now().year, blank=True, null=True)
