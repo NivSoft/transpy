@@ -12,7 +12,7 @@ def licitacao(request):
     modalidades = Tipo.objects.all().order_by('nome')
     anos = range(2015, now().year+1)
     status = Situacao.objects.all().order_by('status')
-    lista_modalidades = Modalidade.objects.all().order_by('-criado_em')
+    lista_modalidades = Modalidade.objects.all().order_by('-criado_em','-identificacao')
     queryobjeto = request.GET.get("queryobjeto")
     if queryobjeto:
         lista_modalidades = lista_modalidades.all().filter(
