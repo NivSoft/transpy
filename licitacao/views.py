@@ -13,14 +13,14 @@ def licitacao(request):
     anos = range(2015, now().year+1)
     status = Situacao.objects.all().order_by('status')
     lista_modalidades = Modalidade.objects.all().order_by('-criado_em','-identificacao')
-    queryobjeto = request.GET.get("queryobjeto")
-    if queryobjeto:
+    q = request.GET.get("q")
+    if q:
         lista_modalidades = lista_modalidades.all().filter(
-                Q(tipo__nome__icontains=queryobjeto)|
-                Q(numero__icontains=queryobjeto)|
-                Q(criado_em__icontains=queryobjeto)|
-                Q(situacao__status__icontains=queryobjeto)|
-                Q(objeto__icontains=queryobjeto)
+                Q(tipo__nome__icontains=q)|
+                Q(numero__icontains=q)|
+                Q(criado_em__icontains=q)|
+                Q(situacao__status__icontains=q)|
+                Q(objeto__icontains=q)
                 ).order_by('-criado_em')
     paginacao = Paginator(lista_modalidades, 10)
     pagina_request = 'pagina'

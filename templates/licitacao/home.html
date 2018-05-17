@@ -2,7 +2,7 @@
 {% load static %}
 {% block menu %}
     <form class="form-inline" method="get" action="">
-    <input name="queryobjeto" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.queryobjeto }}">
+    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.q }}">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
     </form>
 {% endblock %}
@@ -36,7 +36,7 @@
   {% endfor %}
   </tbody>
 </table>
-<nav aria-label="Page navigation example">
+<nav aria-label="Navegação de páginas">
   <ul class="pagination">
     {% if contacts.has_previous %}
     <li class="page-item"><a class="page-link" href="?{{ pagina_request }}={{ contacts.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Voltar</a></li>
