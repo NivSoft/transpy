@@ -10,7 +10,7 @@
     <p>Objeto: <b>{{ dados.objeto }}</b></p>
     <p>Arquivos:
     {% for arquivo in arquivos %}
-        <p><a href="{{ arquivo }}">{{ arquivo.nome }}</a></p>
+        <p><a href="{{ arquivo.arquivo.url }}">{{ arquivo.nome }}</a></p>
     {% endfor %}
     </p>
 </div>
