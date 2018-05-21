@@ -92,7 +92,7 @@ class Arquivo(models.Model):
     nome = models.CharField(max_length=300, default=None, blank=True, null=True)
 
     def __str__(self):
-        return str(self.arquivo.name)
+        return self.arquivo.url
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):

@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
 from django.utils.timezone import now
 
-from licitacao.models import Modalidade, Tipo, Situacao
+from licitacao.models import Modalidade, Tipo, Situacao, Arquivo
 
 
 def licitacao(request):
@@ -35,3 +35,9 @@ def licitacao(request):
         'status':status
         }
     return render(request, 'licitacao/home.html',context)
+
+def detalhes(request, modalidade_id):
+    dados = get_object_or_404(Modalidade, pk=modalidade_id)
+    arquivos = Arquivo.objects.filter(modalidade__pk=modalidade_id)
+    context = RequestContext(request)
+    return render(request, 'licitacao/detalhes.html', {'dados':dados,'arquivos':arquivos}, context)
