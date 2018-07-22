@@ -2,37 +2,41 @@
 {% load static %}
 {% block menu %}
     <form class="form-inline" method="get" action="">
-    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Buscar Licitação" aria-label="Search" value="{{ request.GET.q }}">
+    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" value="{{ request.GET.q }}">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
     </form>
 {% endblock %}
 {% block conteudo %}
 <div class="container" style="margin-top: 20px">
-<h2>Licitações</h2>
+<h2>Pessoal</h2>
 <h5>Opções de busca</h5>
-    <p>Caso deseje buscar algo específico, use um de nossos filtos no campo de busca do menu superior.</p>
-    <p><b>FILTROS: </b><b class="text-primary">MODALIDADE</b>, <b class="text-warning">ANO</b>, <b class="text-success">SITUAÇÃO</b> ou <b class="text-danger">OBJETO</b>.</p>
-<h5>Lista de Licitações</h5>
+<p>Caso deseje buscar algo específico, use um de nossos filtos no campo de busca do menu superior.
+    <p><b>FILTROS:</b> <b class="text-primary">NOME</b>, <b class="text-warning">CARGO</b>, <b class="text-success">VALOR DO SALÁRIO</b> ou <b class="text-danger">MATRÍCULA</b>.</p>
+<h5>Lista de Funcionários</h5>
 <table class="table table-hover table-striped">
   <thead class="thead-dark text-center">
     <tr>
-      <th class="align-middle">Modalidade</th>
-      <th class="align-middle">Nº/Ano</th>
-      <th class="align-middle">Situação</th>
-      <th class="align-middle">Data de Abertura</th>
-      <th class="align-middle">Objeto da Contratação</th>
-      <th class="align-middle">Visualizar Detalhes</th>
+      <th class="align-middle">Matrícula</th>
+      <th class="align-middle">Funcionário</th>
+      <th class="align-middle">Cargo</th>
+      <th class="align-middle">Data de Admissão</th>
+      <th class="align-middle">Salário Fixo</th>
+      <th class="align-middle">Total Bruto</th>
+      <th class="align-middle">Total Descontos</th>
+      <th class="align-middle">Líquido a pagar</th>
     </tr>
   </thead>
   <tbody>
-  {% for dados in contacts %}
+  {% for dado in contacts %}
     <tr>
-      <td class="text-center align-middle">{{ dados.tipo }}</td>
-      <td class="text-center align-middle">{{ dados.identificacao }}</td>
-      <td class="text-center align-middle">{{ dados.situacao }}</td>
-      <td class="text-center align-middle">{{ dados.criado_em }}</td>
-      <td class="align-middle">{{ dados.objeto }}</td>
-      <td class="text-center align-middle"><a href="/detalhes/{{ dados.id }}"><i class="fas fa-search-plus fa-2x"></i></a></td>
+      <td class="text-center align-middle">{{ dado.matricula }}</td>
+      <td class="text-center align-middle">{{ dado.funcionario }}</td>
+      <td class="text-center align-middle">{{ dado.cargo }}</td>
+      <td class="text-center align-middle">{{ dado.data_admissao }}</td>
+      <td class="align-middle">{{ dado.salario_fixo }}</td>
+      <td class="align-middle">{{ dado.tota_bruto }}</td>
+      <td class="align-middle">{{ dado.total_desconto }}</td>
+      <td class="align-middle">{{ dado.liquido }}</td>
     </tr>
   {% endfor %}
   </tbody>

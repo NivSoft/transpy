@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'licitacao.apps.LicitacaoConfig',
     'pessoal.apps.PessoalConfig',
     'portarias.apps.PortariasConfig',
+    'core',
 ]
 
 MIDDLEWARE = [
