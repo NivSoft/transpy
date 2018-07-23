@@ -5,3 +5,8 @@
     height: 200px;
     line-height: 200px;
 }
+.containering{
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
