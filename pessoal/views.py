@@ -9,7 +9,7 @@ from pessoal.models import Pessoa
 
 
 def pessoal(request):
-    query = Pessoa.objects.all()
+    query = Pessoa.objects.all().order_by('mes','ano','funcionario')
     q = request.GET.get("q")
     if q:
         query = Pessoa.objects.all().filter(
@@ -32,3 +32,7 @@ def pessoal(request):
         'contacts':contacts,
         }
     return render(request, 'pessoal/home.html', context)
+
+def links_iniciais(request):
+    context = {}
+    return render(request, 'pessoal/links.html',context)

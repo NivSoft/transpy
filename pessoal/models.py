@@ -26,5 +26,10 @@ class Pessoa(models.Model):
     tota_bruto = models.CharField(max_length=15)
     total_desconto = models.CharField(max_length=15)
     liquido = models.CharField(max_length=15)
+    mes = models.IntegerField(default=None)
+    ano = models.IntegerField(default=None)
+    class Meta:
+        unique_together = ('funcionario','mes','ano')
+        ordering = ('funcionario', 'mes', 'ano')
     def __str__(self):
-        return self.funcionario
+        return "{} - {}/{}".format(self.funcionario, self.mes, self.ano)
