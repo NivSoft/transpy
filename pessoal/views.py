@@ -36,3 +36,6 @@ def pessoal(request):
 def links_iniciais(request):
     context = {}
     return render(request, 'pessoal/links.html',context)
+
+def filtropessoas(request):
+    query = Pessoa.objects.filter().order_by('ano')
