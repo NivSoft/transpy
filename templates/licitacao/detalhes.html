@@ -5,8 +5,7 @@
 <h2 class="text-center">Detalhes</h2>
     <p>Processo nº <b>{{ dados.processo.numero }}/{{ dados.processo.ano }}</b></p>
     <p>Contrato nº <b>{{ dados.contrato }}</b></p>
-    <p>Modalidade: <b>{{ dados.tipo }}</b></p>
-    <p>Nº <b>{{ dados.identificacao }}</b></p>
+    <p>Modalidade: <b>{{ dados.tipo }}</b> / Nº <b>{{ dados.identificacao }}</b></p>
     <p>Objeto: <b>{{ dados.objeto }}</b></p>
     <p>Arquivos:
     {% for arquivo in arquivos %}
