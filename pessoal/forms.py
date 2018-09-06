@@ -1,10 +1,8 @@
-#import django_filters
 from django import forms
 from django.forms import Select, NumberInput
 from pessoal.models import Funcionario
 
 
-#class FuncionarioFilter(django_filters.FilterSet):
 class FuncionarioFilter(forms.ModelForm):
 
     class Meta:

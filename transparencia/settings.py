@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'pessoal.apps.PessoalConfig',
     'portarias.apps.PortariasConfig',
     'core',
-    'django_filters',
 ]
 
 MIDDLEWARE = [
