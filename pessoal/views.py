@@ -7,8 +7,8 @@ from django.template import RequestContext
 from django.utils import timezone
 from django.views.generic import ListView
 
-from pessoal.forms import FuncionarioFilter
-from pessoal.models import Funcionario
+#from pessoal.forms import FuncionarioFilter
+#from pessoal.models import Funcionario
 
 
 def pessoal(request):
@@ -45,43 +45,37 @@ def links_iniciais(request):
     return render(request, 'pessoal/links.html', context)
 
 
-def filtros(request):
-    vinculo = Funcionario.objects.values_list('vinculo', flat=True).order_by('vinculo').distinct()
-    dataano = Funcionario.objects.values_list('data', flat=True).order_by('data').distinct()
-    context = {'vinculo': vinculo, 'dataano': dataano, }
-    return render(request, 'pessoal/cargos.html', context)
 
-
-def listadecargos(request):
-    ultimo_mes = Funcionario.objects.values_list('mes', flat=True).order_by('mes').distinct().last()
-    ultimo_ano = Funcionario.objects.values_list('ano', flat=True).order_by('ano').distinct().last()
-    meses = Funcionario.objects.values_list('mes', flat=True).order_by('mes').distinct()
-    anos = Funcionario.objects.values_list('ano', flat=True).order_by('ano').distinct()
-    tipo_vinculo = Funcionario.objects.values_list('vinculo', flat=True).order_by('vinculo').distinct()
-    lista = ()
-    vinculo = request.GET.get('vinculo')
-    ano = request.GET.get('ano')
-    mes = request.GET.get('mes')
-    form = FuncionarioFilter()
-    if vinculo or ano or mes:
-        lista = Funcionario.objects.all().filter(
-            vinculo__contains=vinculo,
-            ano__contains=ano,
-            mes__contains=mes
-        ).order_by('nome')
-    paginacao = Paginator(lista, 10)
-    pagina_request = 'pagina'
-    pagina = request.GET.get(pagina_request)
-    contacts = paginacao.get_page(pagina)
-    context = {
-        'lista': lista,
-        'form': form,
-        'contacts': contacts,
-        'pagina_request': pagina_request,
-        'tipo_vinculo': tipo_vinculo,
-        'ultimo_mes': ultimo_mes,
-        'ultimo_ano': ultimo_ano,
-        'anos': anos,
-        'meses': meses,
-    }
-    return render(request, 'pessoal/funcionarios.html', context)
+#def listadecargos(request):
+#    ultimo_mes = Funcionario.objects.values_list('mes', flat=True).order_by('mes').distinct().last()
+#    ultimo_ano = Funcionario.objects.values_list('ano', flat=True).order_by('ano').distinct().last()
+#    meses = Funcionario.objects.values_list('mes', flat=True).order_by('mes').distinct()
+#    anos = Funcionario.objects.values_list('ano', flat=True).order_by('ano').distinct()
+#    tipo_vinculo = Funcionario.objects.values_list('vinculo', flat=True).order_by('vinculo').distinct()
+#    lista = ()
+#    vinculo = request.GET.get('vinculo')
+#    ano = request.GET.get('ano')
+#    mes = request.GET.get('mes')
+#    form = FuncionarioFilter()
+#    if vinculo or ano or mes:
+#        lista = Funcionario.objects.all().filter(
+#            vinculo__contains=vinculo,
+#            ano__contains=ano,
+#            mes__contains=mes
+#        ).order_by('nome')
+#    paginacao = Paginator(lista, 10)
+#    pagina_request = 'pagina'
+#    pagina = request.GET.get(pagina_request)
+#    contacts = paginacao.get_page(pagina)
+#    context = {
+#        'lista': lista,
+#        'form': form,
+#        'contacts': contacts,
+#        'pagina_request': pagina_request,
+#        'tipo_vinculo': tipo_vinculo,
+#        'ultimo_mes': ultimo_mes,
+#        'ultimo_ano': ultimo_ano,
+#        'anos': anos,
+#        'meses': meses,
+#    }
+#    return render(request, 'pessoal/funcionarios.html', context)
