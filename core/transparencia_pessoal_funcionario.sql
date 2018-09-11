@@ -16,6 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `pessoal_funcionario`
+--
+
+DROP TABLE IF EXISTS `pessoal_funcionario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pessoal_funcionario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `matricula` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `cargo` varchar(100) NOT NULL,
+  `data_admissao` varchar(10) NOT NULL,
+  `salario_fixo` varchar(15) NOT NULL,
+  `tota_bruto` varchar(15) NOT NULL,
+  `total_desconto` varchar(15) NOT NULL,
+  `liquido` varchar(15) NOT NULL,
+  `data` date NOT NULL,
+  `vinculo` varchar(100) NOT NULL,
+  `ano` int(10) unsigned DEFAULT NULL,
+  `mes` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4937 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `pessoal_funcionario`
 --
 
@@ -34,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-11 15:10:00
+-- Dump completed on 2018-09-11 15:06:34
