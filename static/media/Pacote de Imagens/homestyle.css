@@ -1,5 +1,5 @@
 img.figure-img.img-fluid.rounded{
-    width: 300px;
-    max-width: 100%;
-    height: auto;
+    width: 300px;!important;
+    max-width: 100%;!important;
+    height: auto;!important;
 }
