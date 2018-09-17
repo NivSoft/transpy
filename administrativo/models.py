@@ -3,7 +3,7 @@ from django.db import models
 class Orgao(models.Model):
     nome = models.CharField(max_length=80)
     logo = models.ImageField()
-    cnpj = models.IntegerField()
+    cnpj = models.BigIntegerField()
     rua = models.CharField(max_length=80)
     numero = models.PositiveIntegerField()
     bairro = models.CharField(max_length=80)
