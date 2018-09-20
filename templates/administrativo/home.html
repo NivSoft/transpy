@@ -2,7 +2,27 @@
 {% load static %}
 {% block conteudo %}
 <div class="d-flex justify-content-center flex-wrap">
-  <div class="p-2">
+  <div class="homeBlock">
+        <div class="homeFront">
+            <div class="homeIcon">
+                <img src="{% static "media/Pacote de Imagens/IconLicitacaoN.png" %}" alt="Licitações">
+            </div>
+            <h2>Licitações</h2>
+        </div>
+        <div class="homeContent">
+            <div class="homeTitle">
+                <img src="/static/img/icon_mesa_diretora.png">
+                <h2>Licitações</h2>
+            </div>
+            <p>
+                Listagem de Licitações do Poder Legislativo. Aqui você vai encontrar tudo sobre as Licitações já realizadas ou em andamento do Poder Legislativo do Jaboatão dos Guararapes.
+            </p>
+        </div>
+        <a href="{% static "media/Pacote de Imagens/IconLicitacao.png" %}"></a>
+    </div>
+
+
+    <div class="p-2">
     <a href="licitacao/"><img class="imagenshome rounded mx-auto d-block" src="{% static "media/Pacote de Imagens/IconLicitacaoN.png" %}" alt="licitação"></a>
   </div>
   <div class="p-2">
