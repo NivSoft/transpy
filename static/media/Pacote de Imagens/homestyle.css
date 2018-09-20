@@ -67,6 +67,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    max-width: 74px;
     border-radius: 50%;
     background: #364347;
     top: 0;
