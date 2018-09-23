@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'transparencia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'transparencia',
-        'USER': 'camara',
-        'PASSWORD': 'oalamoD',
+        'NAME': 'Nome do banco',
+        'USER': 'Nome do usuario',
+        'PASSWORD': 'Senha do banco',
         'HOST': '127.0.0.1',
         'PORT': '3306',  # 8000 is default
     }
