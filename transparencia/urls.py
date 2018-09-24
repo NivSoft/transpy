@@ -24,4 +24,5 @@ urlpatterns = [
     path('', include('licitacao.urls')),
     path('', include('administrativo.urls')),
     path('', include('pessoal.urls')),
+    path('', include('api.urls')),
 ]
