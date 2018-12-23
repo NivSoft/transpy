@@ -17,7 +17,7 @@ class Dados():
         modelo = Funcionario.objects.filter(data=timezone.datetime(ano, mes, dia), vinculo=vinculo)
         modelo.delete()
 
-    def importar(self, arquivo, mes):
+    def importar(self, arquivo, mes, vinculo):
         data = csv.reader(open(arquivo), delimiter=";")
         for linha in data:
             importacao = Funcionario()
@@ -30,7 +30,7 @@ class Dados():
             importacao.total_desconto = linha[6]
             importacao.liquido = linha[8]
             importacao.data = timezone.datetime(2018, mes, 1)
-            importacao.vinculo = "Comissão"
+            importacao.vinculo = vinculo
             if importacao.data:
                 importacao.ano = importacao.data.year
                 importacao.mes = importacao.data.month
@@ -41,8 +41,17 @@ chamada = input("O que você gostaria de fazer? (I) Importar ou (E) Excluir ")
 if chamada == "i":
     arquivo = input("Digite o caminho do arquivo -> ")
     mes = int(input("Digite o mês -> "))
-    dados = Dados()
-    dados.importar(arquivo, mes)
+    sigla_vinculo = str(input("Digite o Vínculo -> e (efetivo) c (comissionado)"))
+    if sigla_vinculo == "e":
+        vinculo = "Efetivo"
+        dados = Dados()
+        dados.importar(arquivo, mes, vinculo)
+    elif sigla_vinculo == "c":
+        vinculo = "Comissão"
+        dados = Dados()
+        dados.importar(arquivo, mes, vinculo)
+    else:
+        print("Comando inválido")
 elif chamada == "e":
     ano = int(input("Digite o Ano -> "))
     mes = int(input("Digite o Mês -> "))
