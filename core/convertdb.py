@@ -2,9 +2,9 @@ import csv, sys, os
 
 from django.utils import timezone
 
-dir_projeto = "../transparencia"
+dir_projeto = "Coloque o diretório do projeto exemplo: /deploy/App"
 sys.path.append(dir_projeto)
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'transparencia.settings'
 import django
 
 django.setup()
@@ -28,7 +28,7 @@ class Dados():
             importacao.salario_fixo = linha[4]
             importacao.tota_bruto = linha[5]
             importacao.total_desconto = linha[6]
-            importacao.liquido = linha[8]
+            importacao.liquido = linha[7]
             importacao.data = timezone.datetime(2018, mes, 1)
             importacao.vinculo = vinculo
             if importacao.data:
