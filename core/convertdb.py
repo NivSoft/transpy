@@ -38,15 +38,17 @@ class Dados():
 
 
 chamada = input("O que você gostaria de fazer? (I) Importar ou (E) Excluir ")
-if chamada == "I" or "i":
+if chamada == "i":
     arquivo = input("Digite o caminho do arquivo -> ")
     mes = int(input("Digite o mês -> "))
     dados = Dados()
     dados.importar(arquivo, mes)
-elif chamada == "E" or "e":
+elif chamada == "e":
     ano = int(input("Digite o Ano -> "))
     mes = int(input("Digite o Mês -> "))
     dia = int(input("Digite o Dia -> "))
     vinculo = str(input("Digite o Vínculo -> "))
     dados = Dados()
     dados.deletar(ano, mes, dia, vinculo)
+else:
+    print('Comando inválido')
