@@ -58,8 +58,8 @@ def listadecargos(request):
     if vinculo or ano or mes:
         lista = Funcionario.objects.all().filter(
             vinculo__contains=vinculo,
-            ano__contains=ano,
-            mes__contains=mes
+            ano__exact=ano,
+            mes__exact=mes
         ).order_by('nome')
     paginacao = Paginator(lista, 10)
     pagina_request = 'pagina'
