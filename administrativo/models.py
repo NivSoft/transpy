@@ -22,9 +22,3 @@ class Convenio(models.Model):
 
     def __str__(self):
         return self.termo
-
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        if not self.pub_date:
-            self.pub_date = timezone.now()
-            super(Convenio, self).save()
