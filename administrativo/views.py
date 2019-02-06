@@ -15,8 +15,8 @@ def convenio(request):
     lista_convenios = Convenio.objects.all().order_by('-pub_date')
     q = request.GET.get("q")
     if q:
-        lista_convenios = Convenio.objects.all().filter(
-            Q(pub_data__icontains=q) |
+        lista_convenios = lista_convenios.all().filter(
+            Q(pub_date__icontains=q) |
             Q(termo__icontains=q)
         ).order_by('-pub_data')
     paginacao = Paginator(lista_convenios, 10)
