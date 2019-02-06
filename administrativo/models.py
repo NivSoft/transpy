@@ -20,9 +20,6 @@ class Convenio(models.Model):
     pub_date = models.DateField(verbose_name="Data de Publicação")
     arquivo = models.FileField(default=None, blank=True, null=True)
 
-    class Meta:
-        ordering = ('data')
-
     def __str__(self):
         return self.termo
 
