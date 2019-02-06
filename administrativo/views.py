@@ -10,14 +10,12 @@ def home(request):
     context = RequestContext(request)
     return render(request, 'administrativo/home.html', {})
 
+
 def convenio(request):
-    #dado = Convenio.objects.all().order_by('pub_date')
-    #context = RequestContext(request)
-    #return render(request, 'administrativo/convenio.html',{'dado': dado}, context)
     lista_convenios = Convenio.objects.all().order_by('-pub_date')
     q = request.GET.get("q")
     if q:
-        lista_convenios = lista_convenios.all().filter(
+        lista_convenios = Convenio.objects.all().filter(
             Q(pub_data__icontains=q) |
             Q(termo__icontains=q)
         ).order_by('-pub_data')
