@@ -2,6 +2,7 @@
 apt update && apt upgrade -y
 apt install vim python3 python virtualenv build-essential python3-dev python procps -y
 apt install python3-pip -y
+apt install default-libmysqlclient-dev
 
 DIR=/
 FILE=deploy
